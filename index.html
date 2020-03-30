@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width-device-width, initial-scale-1">
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.cyan-light_blue.min.css" />
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+    <script>
+        Modernizr.load([{
+            load: "https://code.jquery.com/jquery-3.4.1.js",
+            complete: function() {
+                if(!window.jQuery) {
+                    Modernizr.load("https://code.jquery.com/jquery-3.4.1.js");
+                }
+            }
+        },
+            "js/ui.js",
+            "https://cdn.babylonjs.com/babylon.js",
+            "https://fonts.googleapis.com/icon?family=Material+Icons",
+            {
+                load: "js/main.js",
+                complete: function() {
+                    $(function () {
+                        let game = new SimonSays.Game();
+                        game.init();
+                    })
+                
+                }
+            }
+        ]);
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div id="score">Current Score:</div>
+        <div id="start_game" class="new_game">
+            <div id="start_game_message">
+                <h2>Let's Play Simon Says!</h2>
+            </div>
+            <button id="start_button" class="md1-button mdl-js-button mdl-button--raised mdle-button-colored">Start Game</button>
+        </div>
+    </div>
+<canvas id="glCanvas"></canvas>
+</body>
+</html>
